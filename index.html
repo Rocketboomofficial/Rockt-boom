@@ -74,6 +74,98 @@ body.aa #bF,body.aa #bX{display:grid!important}
 #hgh{position:absolute;inset:60px 10% 120px;background:#0d1620f2;border:1px solid #fff3;border-radius:10px;padding:14px;overflow:auto;display:none;pointer-events:auto;font-size:12px;line-height:1.8}
 #hgh p{margin:0 0 8px}
 #ld{position:absolute;width:20px;height:20px;margin:-10px;border:2px solid #ffd060;border-radius:50%;display:none}#ld:after{content:'';position:absolute;left:7px;top:7px;width:4px;height:4px;background:#ffd060;border-radius:50%}
+
+/* ===== ROCKET BOOM / FLIGHT DECK UI refresh ===== */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#050b15;--fg:#f2f7ff;--ac:#63f3ff;--rd:#ff5577;--pn:rgba(7,16,31,.76);--line:rgba(115,224,255,.25);--gold:#ffc66d}
+html,body{font-family:'Vazirmatn',Tahoma,'Segoe UI',sans-serif;background:radial-gradient(ellipse at 50% 15%,#12304a 0%,#081321 45%,#030711 100%);letter-spacing:.05px}
+button{font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+#hg{background:radial-gradient(ellipse at 50% 36%,rgba(26,91,121,.10),transparent 44%),linear-gradient(145deg,rgba(2,8,18,.08),rgba(2,8,18,.18));backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:none!important}
+/* Keep the 3D aircraft canvas crisp: never blur the full-screen showroom layer. */
+body>canvas{filter:none!important;image-rendering:auto}#hg{will-change:auto}
+#hgt{top:calc(14px + env(safe-area-inset-top,0px));font-size:clamp(24px,3.2vw,38px);font-weight:900;letter-spacing:.5px;color:#f4fbff;text-shadow:0 0 22px #39d9ff55,0 3px 18px #000;pointer-events:none}
+#hgt:after{content:'FLIGHT DECK  /  ROCKET BOOM';display:block;margin-top:3px;font:700 9px/1.5 ui-monospace,monospace;letter-spacing:3px;color:#6cecff;direction:ltr;opacity:.88}
+#hgn{top:calc(78px + env(safe-area-inset-top,0px));display:inline-block;left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:80%;padding:5px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(3,12,24,.66);color:#c9f8ff;font:700 11px ui-monospace,monospace;box-shadow:0 0 24px #31c9ff12}
+#hgp{bottom:calc(12px + env(safe-area-inset-bottom,0px));left:clamp(12px,3vw,42px);right:clamp(12px,3vw,42px);padding:18px 20px calc(14px + env(safe-area-inset-bottom,0px));gap:18px;align-items:center;flex-wrap:nowrap;background:linear-gradient(110deg,rgba(5,14,27,.93),rgba(7,25,42,.78));border:1px solid rgba(102,223,255,.24);border-radius:22px;box-shadow:0 18px 65px #0008,inset 0 1px #ffffff0d;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+#hgi{flex:1 1 340px;min-width:0}
+#hgname{font-size:clamp(20px,2.3vw,30px)!important;font-weight:900!important;line-height:1.35;color:#f4fbff;text-shadow:0 0 20px #6beeff18}
+#hgs{font-size:12px;line-height:1.9;color:#b8cadc;opacity:1;max-width:650px}
+#hgb{gap:12px;margin-top:13px;max-width:600px}
+#hgb div{font-size:10px;color:#9fb8cc;font-weight:700}
+#hgb i{height:7px;background:#ffffff12;border:1px solid #ffffff0a;border-radius:999px;margin-top:5px}
+#hgb i b{border-radius:999px;background:linear-gradient(90deg,#38bfff,#70fff0);box-shadow:0 0 12px #47dcff55}
+#hgc{min-width:max-content;gap:10px;align-items:flex-end}
+#hgdf{gap:8px;flex-wrap:wrap}
+#hgdf>div{gap:7px!important;flex-wrap:wrap}
+#hgdf button,#hgq{min-height:40px;padding:9px 14px;border-radius:12px;border:1px solid #ffffff20;background:rgba(255,255,255,.055);color:#d9eafa;font:700 12px 'Vazirmatn',Tahoma,sans-serif;box-shadow:inset 0 1px #ffffff09}
+#hgdf button:hover,#hgq:hover{border-color:#6cecff88;background:#12324a;transform:translateY(-1px)}
+#hgbt{gap:9px;align-items:center}
+#go{min-height:48px;min-width:174px;padding:12px 23px;border:1px solid #a9fbff;border-radius:14px;background:linear-gradient(110deg,#6af4ff,#a4ffe7 52%,#ffd37d);color:#03111c;font:900 15px 'Vazirmatn',Tahoma,sans-serif;box-shadow:0 8px 28px #48dfff33,inset 0 1px #ffffffaa;letter-spacing:.1px}
+#go:before{content:'▶';font:900 12px ui-monospace,monospace;margin-left:9px}
+#go:hover{transform:translateY(-2px);box-shadow:0 12px 34px #48dfff55}
+#go:active{transform:translateY(1px)}
+.ar{width:58px;height:58px;top:43%;border:1px solid #82eaff66;background:linear-gradient(145deg,rgba(9,35,54,.86),rgba(3,12,24,.84));box-shadow:0 10px 30px #0005,inset 0 1px #ffffff18;color:#c6f7ff;font-size:25px;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+.ar:hover{transform:scale(1.06);background:#123c54;box-shadow:0 0 26px #42dfff2b}
+.ar:active{background:var(--ac);color:#00111a}
+#hgL{left:clamp(12px,3vw,42px)}#hgR{right:clamp(12px,3vw,42px)}
+#hgh{inset:calc(105px + env(safe-area-inset-top,0px)) clamp(12px,8vw,120px) calc(190px + env(safe-area-inset-bottom,0px));background:rgba(3,12,25,.96);border:1px solid #5be7ff55;border-radius:20px;box-shadow:0 20px 70px #0009;font-size:13px;color:#d7e8f7;backdrop-filter:blur(18px)}
+#hgh p{margin:0 0 12px;line-height:1.9}
+#rot{background:radial-gradient(ellipse at 50% 35%,#123e59,#06101f 65%,#02060d);color:#e9faff;font-family:'Vazirmatn',Tahoma,sans-serif}
+#rot i{filter:drop-shadow(0 0 20px #52eaff);animation:rb-rotate 2.2s ease-in-out infinite}
+@keyframes rb-rotate{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
+/* Slightly wider viewing distance keeps large and small aircraft comfortably framed. */
+@media(min-width:700px){#hgp{padding:20px 26px}#hgs{font-size:13px}#hgb{gap:16px}}
+@media(max-width:700px){#hgt{font-size:23px}#hgt:after{font-size:8px;letter-spacing:2px}#hgn{top:calc(68px + env(safe-area-inset-top,0px));font-size:10px}#hgp{left:9px;right:9px;bottom:calc(8px + env(safe-area-inset-bottom,0px));padding:12px;gap:10px;border-radius:17px;align-items:stretch;flex-wrap:wrap}#hgi{flex-basis:100%}#hgname{font-size:19px!important}#hgs{font-size:11px;line-height:1.7}#hgb{margin-top:8px;gap:8px}#hgc{width:100%;min-width:0;align-items:stretch;gap:8px}#hgdf{justify-content:space-between}#hgdf>div{flex:1}#hgdf button{flex:1;min-width:0;padding:8px 9px;font-size:11px}#hgbt{display:grid;grid-template-columns:1fr 1.4fr}#go{min-width:0;width:100%;min-height:43px;padding:9px 12px;font-size:13px}#hgq{padding:8px 10px;font-size:11px}.ar{top:38%;width:46px;height:46px;margin-top:-23px;font-size:21px}#hgL{left:8px}#hgR{right:8px}#hgh{inset:calc(96px + env(safe-area-inset-top,0px)) 10px calc(215px + env(safe-area-inset-bottom,0px));padding:12px;font-size:12px}}
+@media(orientation:landscape) and (max-height:520px){#hgt{top:6px;font-size:21px}#hgt:after{font-size:7px;letter-spacing:2px}#hgn{top:55px;padding:3px 10px}#hgp{left:12px;right:12px;bottom:8px;padding:10px 14px;gap:12px;flex-wrap:nowrap}#hgi{flex:1 1 45%}#hgname{font-size:18px!important}#hgs{font-size:10px;line-height:1.5}#hgb{margin-top:6px;gap:8px}#hgc{width:auto;min-width:230px}#hgdf button,#hgq{min-height:32px;padding:6px 9px;font-size:10px}#go{min-height:36px;padding:7px 12px;font-size:12px;min-width:140px}#hgq{min-width:90px}.ar{top:40%;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){#rot i{animation:none}}
+
+
+/* Flight pause menu and refined touch controls */
+#pauseBtn{position:absolute;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:8;pointer-events:auto;border:1px solid #70eaff66;border-radius:12px;padding:9px 14px;background:linear-gradient(135deg,#102b42eF,#071321ee);color:#e9fbff;font:800 12px inherit;box-shadow:0 6px 24px #0008, inset 0 1px #ffffff18;backdrop-filter:blur(10px)}
+#pauseBtn:active{transform:scale(.96);background:#1b5269}
+#bt{grid-template-columns:repeat(3,minmax(58px,68px));gap:8px;bottom:calc(14px + env(safe-area-inset-bottom,0px));right:12px;padding:10px;border:1px solid #73e7ff35;border-radius:18px;background:linear-gradient(145deg,#061728c9,#07101edb);box-shadow:0 10px 30px #0007;backdrop-filter:blur(12px)}
+#bt b{height:44px;border-radius:12px;border:1px solid #8beaff35;background:linear-gradient(145deg,#17344bdc,#0a1929ee);color:#e9faff;font-size:11px;font-weight:800;box-shadow:inset 0 1px #ffffff12}
+#bt b:active,#bt b.on{background:linear-gradient(145deg,#8cf4ff,#32aeca);color:#03111d;border-color:#c5fbff;box-shadow:0 0 18px #4ce7ff66}
+#b2{grid-template-columns:repeat(3,54px);gap:6px;left:16px;bottom:calc(158px + env(safe-area-inset-bottom,0px));padding:8px;border:1px solid #73e7ff30;border-radius:15px;background:#071523b8;backdrop-filter:blur(10px)}
+#b2 b{height:34px;border-radius:10px;background:#102a40e8;border:1px solid #8beaff2b;color:#dffaff;font-weight:700}
+#pausePanel{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:18px;background:radial-gradient(ellipse at 50% 20%,#16415cbb,#020711ed 72%);backdrop-filter:blur(12px);direction:rtl}
+#pausePanel.show{display:flex}
+.pauseCard{width:min(440px,100%);max-height:90dvh;overflow:auto;padding:25px;border-radius:24px;border:1px solid #6ceaff55;background:linear-gradient(150deg,#10283beF,#07111ff5);box-shadow:0 24px 90px #000b,inset 0 1px #ffffff16;text-align:center;color:#effaff}
+.pauseEyebrow{font:800 9px ui-monospace,monospace;letter-spacing:3px;color:#72eaff}
+.pauseCard h2{font-size:26px;margin:10px 0 20px;font-weight:900;text-shadow:0 0 24px #39cfff55}
+.pauseActions{display:grid;grid-template-columns:1fr;gap:10px}
+.pauseActions button,.pauseCard button{min-height:46px;border:1px solid #79e8ff55;border-radius:13px;background:#102c42;color:#effaff;font:800 14px inherit;padding:10px 16px}
+.pauseActions .primaryAction{background:linear-gradient(100deg,#6af0ff,#42b9db);color:#03121d;border:0;box-shadow:0 8px 25px #2ac9ed44}
+#settingsPanel{display:none;margin-top:18px;padding:16px;text-align:right;border:1px solid #78e7ff33;border-radius:16px;background:#06111dd9}
+#settingsPanel.show{display:block}#settingsPanel h3{margin:0 0 14px;color:#8ceeff;font-size:17px}
+#settingsPanel label{display:block;margin:13px 0;color:#d9f5ff;font-size:13px;font-weight:700}
+#settingsPanel output{float:left;color:#75edff}#settingsPanel input[type=range]{display:block;width:100%;margin-top:10px;accent-color:#53dff5}
+#settingsPanel select{display:block;width:100%;margin-top:8px;padding:10px;border-radius:10px;background:#10283b;color:#fff;border:1px solid #5adcf655}
+#settingsPanel .settingCheck{display:flex;align-items:center;gap:10px}#settingsPanel .settingCheck input{accent-color:#53dff5}
+.settingsNote{font-size:11px;color:#9cb6c9;line-height:1.7}
+@media(orientation:landscape) and (max-height:520px){#pauseBtn{top:6px;padding:6px 10px}#bt{grid-template-columns:repeat(4,48px);gap:4px;padding:6px}#bt b{height:32px;font-size:9px}#b2{grid-template-columns:repeat(3,42px);bottom:calc(135px + env(safe-area-inset-bottom,0px));gap:4px;padding:5px}#b2 b{height:28px;font-size:9px}.pauseCard{padding:16px}.pauseCard h2{margin:6px 0 12px;font-size:21px}.pauseActions button,.pauseCard button{min-height:36px}}
+
+
+/* ===== Scroll / touch fixes for all long panels ===== */
+html,body{overscroll-behavior:none}
+#pausePanel{overflow-y:auto;overflow-x:hidden;align-items:flex-start;justify-content:center;padding: max(14px,env(safe-area-inset-top,0px)) 14px max(14px,env(safe-area-inset-bottom,0px));-webkit-overflow-scrolling:touch;touch-action:pan-y}
+.pauseCard{flex:0 0 auto;max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 28px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:#58dff5 #0a1928}
+#settingsPanel{max-height:none;overflow:visible;touch-action:pan-y}
+#settingsPanel label,#settingsPanel input,#settingsPanel select,#settingsPanel button{touch-action:pan-y}
+#hg{overflow:hidden}
+#hgh{max-height:calc(100dvh - 180px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:#58dff5 #0a1928;padding-bottom:max(18px,env(safe-area-inset-bottom,0px))}
+#hgh *{touch-action:pan-y;user-select:text;-webkit-user-select:text}
+#hgp{max-height:42dvh;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:#58dff5 #0a1928}
+#hgi,#hgc,#hgdf,#hgbt{touch-action:pan-y}
+#ov{justify-content:flex-start;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;padding-top:max(16px,env(safe-area-inset-top,0px));padding-bottom:max(20px,env(safe-area-inset-bottom,0px))}
+#ov p,#ov button,#ov #cards,#ov #df{touch-action:pan-y}
+@media(orientation:landscape) and (max-height:520px){
+ #pausePanel{padding:6px 10px}
+ .pauseCard{max-height:calc(100dvh - 12px);padding:14px}
+ #hgh{inset:48px 8% 90px;max-height:none;padding:10px;font-size:11px}
+ #hgp{max-height:48dvh;padding:10px 12px}
+}
+
 </style>
 <link rel="manifest" href="./manifest.webmanifest">
 <meta name="theme-color" content="#0d1620">
@@ -87,11 +179,13 @@ body.aa #bF,body.aa #bX{display:grid!important}
 
 </head><body>
 <div id="hud">
+ <button id="pauseBtn" aria-label="توقف">Ⅱ توقف</button>
  <div id="st"></div><canvas id="rd" width="120" height="120"></canvas>
  <div id="msg"></div><div id="rdo"></div><div id="vg"></div><div id="hz"></div><div id="cx"></div><div id="lk"></div><div id="ld"></div><div id="fl"></div>
  <div id="b2"><b id="gG">چرخ</b><b id="gT">خلبان</b><b id="gH">ترمز</b><b id="gZ">EMP</b><b id="gJ">پهپاد</b><b id="gL">چراغ</b></div><div id="st2"></div><div id="js"><div id="kn"></div></div>
  <div id="bt"><b id="bG">شلیک</b><b id="bR">راکت</b><b id="bM">موشک</b><b id="bB">بمب</b><b id="bF">فلر</b><b id="bU">▲ گاز</b><b id="bX">بوست</b><b id="bC">کابین</b><b id="bD" style="grid-column:3">▼ گاز</b><b id="bK">خوشه‌ای</b><b id="bV">سالو</b><b id="bY">سنگین</b><b id="bN">زمان</b><b id="bI">معکوس</b></div>
 </div>
+<div id="pausePanel" aria-hidden="true"><section class="pauseCard"><div class="pauseEyebrow">ROCKET BOOM / FLIGHT CONTROL</div><h2 id="pauseTitle">بازی متوقف شد</h2><div class="pauseActions"><button id="resumeBtn" class="primaryAction">ادامه بازی</button><button id="menuBtn">بازگشت به منو</button><button id="settingsBtn">تنظیمات</button></div><div id="settingsPanel"><h3>تنظیمات بازی</h3><label>حساسیت کنترل <output id="sensVal">۱۰۰٪</output><input id="sensRange" type="range" min="50" max="150" value="100"></label><label>کیفیت گرافیک<select id="qualitySelect"><option value="1">بالا</option><option value="0.75">متعادل</option><option value="0.5">صرفه‌جویی باتری</option></select></label><label class="settingCheck"><input id="shakeToggle" type="checkbox" checked> لرزش دوربین</label><p class="settingsNote">تنظیمات فقط روی تجربه‌ی همین دستگاه اثر می‌گذارند.</p><button id="settingsBack">بازگشت</button></div></section></div>
 <div id="rot"><i>📱↻</i><div>برای بازی، گوشی را افقی بچرخان</div></div>
 <div id="hg"><div id="hgt">راکت بوم</div><div id="hgn"></div><div class="ar" id="hgL">←</div><div class="ar" id="hgR">→</div><div id="hgp"><div id="hgi"><h2 id="hgname"></h2><div id="hgs"></div><div id="hgb"></div></div><div id="hgc"><div id="hgdf"></div><div id="hgbt"></div></div></div><div id="hgh"></div></div>
 <div id="ov"><h1>راکت بوم</h1>
@@ -127,7 +221,7 @@ TYPES.forEach((t,i)=>{const d=document.createElement('div');d.className='cd'+(i?
 
 const scene=new T.Scene(),SKY=0xc7e0f7;scene.background=new T.Color(SKY);scene.fog=new T.Fog(SKY,1200,13000);
 const cam=new T.PerspectiveCamera(65,innerWidth/innerHeight,2,40000);
-const ren=new T.WebGLRenderer({antialias:true});ren.setSize(innerWidth,innerHeight);ren.setPixelRatio(Math.min(devicePixelRatio,2));ren.shadowMap.enabled=true;ren.shadowMap.type=T.PCFSoftShadowMap;ren.toneMapping=T.ACESFilmicToneMapping;ren.toneMappingExposure=1.15;document.body.prepend(ren.domElement);
+const ren=new T.WebGLRenderer({antialias:true});ren.setSize(innerWidth,innerHeight);ren.setPixelRatio(Math.min(devicePixelRatio,2));ren.outputEncoding=T.sRGBEncoding;ren.shadowMap.enabled=true;ren.shadowMap.type=T.PCFSoftShadowMap;ren.toneMapping=T.ACESFilmicToneMapping;ren.toneMappingExposure=1.15;document.body.prepend(ren.domElement);
 const HL=new T.HemisphereLight(0xffffff,0x4a6a4a,.95);scene.add(HL);
 const sky=(function(){const g=new T.SphereGeometry(30000,24,16),p=g.attributes.position,c=[];for(let i=0;i<p.count;i++){const t=Math.pow(Math.max(0,p.getY(i)/30000),.6);c.push(.78-.62*t,.88-.5*t,.97-.2*t)}g.setAttribute('color',new T.Float32BufferAttribute(c,3));
 const m=new T.Mesh(g,new T.MeshBasicMaterial({vertexColors:true,side:T.BackSide,fog:false}));
@@ -358,7 +452,7 @@ for(let i=0;i<28;i++){const a=R()*6.28,e=R()*1.4-.2,sp=rad*(2+R()*5);spk(pos,V(M
 if(low){for(let i=0;i<14;i++){const a=i/14*6.28;smk(V(pos.x,gh+2,pos.z),V(Math.cos(a)*rad*2,4,Math.sin(a)*rad*2),rad*.22,1.6,0x8a7a62)}
 if(gh>1){const d=new T.Mesh(new T.CircleGeometry(1,20).rotateX(-Math.PI/2),new T.MeshBasicMaterial({color:0x14100c,transparent:true,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-2}));d.position.set(pos.x,gh+.4,pos.z);d.scale.setScalar(rad*.8);scene.add(d);fx.push({m:d,l:25,L:25,sz:rad*.8,g:0})}}
 if(big){for(let i=0;i<30;i++)smk(pos.clone().add(V(R()*60-30,i*14,R()*60-30)),V(0,80+R()*40,0),90+R()*60,6+R()*4,i%2?0x3a3028:0x5a4a38);for(let i=0;i<24;i++){const a=i/24*6.28;smk(pos.clone().add(V(0,520,0)),V(Math.cos(a)*90,40,Math.sin(a)*90),180,8,0x6a5a48)}}}
-let P,en,pr,fx,fls,sc,wave,run=false,msgT=0,shake=0,rings=[],cock=false,invJ=-1,diff=1,hi=0,boostE=100,allies=[],combo=0,ct=0,keys={},joy={x:0,y:0},btn={};
+let P,en,pr,fx,fls,sc,wave,run=false,paused=false,controlSensitivity=1,renderScale=1,shakeEnabled=true,msgT=0,shake=0,rings=[],cock=false,invJ=-1,diff=1,hi=0,boostE=100,allies=[],combo=0,ct=0,keys={},joy={x:0,y:0},btn={};
 const bg=new T.BoxGeometry(.5,.5,14),bgM=new T.MeshBasicMaterial({color:0xffee66}),eM=new T.MeshBasicMaterial({color:0xff5544}),
 rg=new T.CylinderGeometry(.5,.5,6,6).rotateX(Math.PI/2),sg=new T.SphereGeometry(1,8,6),smM=new T.MeshLambertMaterial({color:0xffffff});
 const au=()=>window._a||(window._a=new(window.AudioContext||window.webkitAudioContext)());
@@ -373,7 +467,7 @@ if(own==='p'){for(const e of en)if(e.pos.distanceTo(pos)<rad+e.r)hit(e,dmg*(1-e.
 else if(P.pos.distanceTo(pos)<rad+8)hurt(dmg*.6)}
 function hurt(d){if(!run)return;P.hp-=d*diff;shake=Math.max(shake,.35);$('fl').style.background='var(--rd)';$('fl').style.opacity=.5;if(P.hp<=0)die()}
 function hit(e,d){e.hp-=d;if(e.hp<=0&&!e.dead){e.dead=true;sc+=(e.big?400:e.air?100:e.sam?150:60)*(1+Math.min(4,combo));combo++;ct=6;if(e.city)CB(e);else boom(e.pos,e.air?30:22,0,'x');scene.remove(e.mesh)}}
-function die(){run=false;engStop();try{hi=Math.max(hi,sc);localStorage.setItem('ac_hi',hi)}catch(e){}$('hs').textContent='رکورد: '+hi;boom(P.pos,60,0,'x');scene.remove(P.mesh);setTimeout(()=>hgOpen('سقوط کردی! امتیاز: '+sc),1800)}
+function die(){run=false;paused=false;$('pausePanel').classList.remove('show');$('pauseBtn').style.display='none';engStop();try{hi=Math.max(hi,sc);localStorage.setItem('ac_hi',hi)}catch(e){}$('hs').textContent='رکورد: '+hi;boom(P.pos,60,0,'x');scene.remove(P.mesh);setTimeout(()=>hgOpen('سقوط کردی! امتیاز: '+sc),1800)}
 
 function spawnGround(sam){let x,z,h,n=0;do{x=R()*W*1.5-W*.75;z=R()*W*1.5-W*.75;h=H(x,z)}while(h<6&&n++<60);
 const g=new T.Group(),m=new T.MeshLambertMaterial({color:sam?0x884433:0x556644});
@@ -390,9 +484,9 @@ const pos=V(P.pos.x+Math.cos(a)*3000,Math.max(500,P.pos.y)+R()*300,P.pos.z+Math.
 mesh.position.copy(pos);scene.add(mesh);en.push({air:true,mesh,pos:mesh.position,q:mesh.quaternion,hp:(60+wave*8)*(big?5:1),r:big?32:14,big,cd:2,mcd:6+R()*5,v:190+wave*8})}
 function nextWave(){if(P.t.aa)return aaWave();wave++;for(const e of en)if(e.bld){scene.remove(e.mesh);e.dead=true}en=en.filter(e=>!e.dead);for(let i=0;i<Math.min(2+wave,5);i++)spawnBase();for(let i=0;i<2+wave;i++)spawnAir();for(let i=0;i<4+wave*2;i++)spawnGround(false);for(let i=0;i<Math.min(wave,5);i++)spawnGround(true);
 const t=P.t;P.hp=Math.min(t.hp,P.hp+t.hp*.3);P.am.rk=Math.min(t.rk,P.am.rk+Math.ceil(t.rk/2));P.am.ms=Math.min(t.ms,P.am.ms+Math.ceil(t.ms/2));P.am.bm=Math.min(t.bm,P.am.bm+Math.ceil(t.bm/2));if(t.nk)P.am.nk=Math.min(t.nk,P.am.nk+2);P.am.gun=t.gun;for(let i=0;i<2;i++){const m=new T.Mesh(new T.TorusGeometry(40,4,8,28),new T.MeshBasicMaterial({color:0x44ff88}));m.position.set(P.pos.x+R()*3000-1500,500+R()*700,P.pos.z+R()*3000-1500);scene.add(m);rings.push({mesh:m})}if(wave>1)for(let i=0;i<Math.min(wave,3);i++)spawnShip();if(wave%3===0){spawnAir(true);say('بمب‌افکن سنگین دشمن!',3)}if(wave>1)for(let i=0;i<Math.min(2+wave,8);i++)spawnDrone();if(LM){spawnCity();P.am.ms=t.ms;LM.rl=0;say('موج '+wave+' – شهر دشمن را با موشک بزن',4)}else say('موج '+wave+' – حلقه‌های سبز تجهیزات را پر می‌کنند',3.5)}
-function start(){shAu(0);for(const o of CDC)scene.remove(o);CDC.length=0;if(P)scene.remove(P.mesh);for(const o of[...(en||[]),...(pr||[]),...(fx||[]),...(fls||[]),...(rings||[])])scene.remove(o.mesh||o.m);
+function start(){paused=false;$('pausePanel').classList.remove('show');$('pausePanel').setAttribute('aria-hidden','true');$('pauseBtn').style.display='block';shAu(0);for(const o of CDC)scene.remove(o);CDC.length=0;if(P)scene.remove(P.mesh);for(const o of[...(en||[]),...(pr||[]),...(fx||[]),...(fls||[]),...(rings||[])])scene.remove(o.mesh||o.m);
 const t=TYPES[sel],mesh=jet(t,t.col);mkGear(mesh,t);scene.add(mesh);mesh.traverse(o=>o.castShadow=true);scene.traverse(o=>{if(o.isMesh&&o.geometry.attributes.color&&o.material.map)o.receiveShadow=true});
-P={t,mesh,pos:V(0,900,0),q:new T.Quaternion(),sp:t.s[1]*.6,th:.6,hp:t.hp,am:{gun:t.gun,rk:t.rk,ms:t.ms,bm:t.bm,fl:t.fl,nk:t.nk||1},cd:{g:0,r:0,m:0,b:0,f:0},lock:null};LM=(t.k==='lnc'||t.aa)?{yw:0,pt:t.aa?.25:.5,m:null,cd:0,hold:0,rl:0,rx:0,ry:0,gc:0,cn:0,zm:0}:null;document.body.classList.toggle('lm',!!LM);document.body.classList.toggle('aa',!!t.aa);$('bF').textContent='فلر';$('bX').textContent=t.aa?'🔍 زوم':'بوست';$('hz').style.display=t.aa?'none':'';$('ld').style.display='none';SH.visible=!LM;$('lk').style.display='none';$('bG').textContent=LM?(t.aa?'🔫 توپ':t.sh?'🛩️ پهپاد':'🚀 پرتاب'):'شلیک';$('bM').textContent=LM?(t.aa?'🎯 موشک':t.sh?'🛩️ پهپاد':'🚀 پرتاب'):'موشک';if(LM){P.pos.set(1500,H(1500,800)+.5,800);P.sp=0;cock=false}
+P={t,mesh,pos:V(0,900,0),q:new T.Quaternion(),sp:t.s[1]*.6,th:.6,hp:t.hp,am:{gun:t.gun,rk:t.rk,ms:t.ms,bm:t.bm,fl:(t.s[1]>1?Math.max(10,t.fl||0):t.fl),nk:t.nk||1},cd:{g:0,r:0,m:0,b:0,f:0},lock:null};LM=(t.k==='lnc'||t.aa)?{yw:0,pt:t.aa?.25:.5,m:null,cd:0,hold:0,rl:0,rx:0,ry:0,gc:0,cn:0,zm:0}:null;document.body.classList.toggle('lm',!!LM);document.body.classList.toggle('aa',!!t.aa);$('bF').textContent='فلر '+P.am.fl;$('bX').textContent=t.aa?'🔍 زوم':'بوست';$('hz').style.display=t.aa?'none':'';$('ld').style.display='none';SH.visible=!LM;$('lk').style.display='none';$('bG').textContent=LM?(t.aa?'🔫 توپ':t.sh?'🛩️ پهپاد':'🚀 پرتاب'):'شلیک';$('bM').textContent=LM?(t.aa?'🎯 موشک':t.sh?'🛩️ پهپاد':'🚀 پرتاب'):'موشک';for(const [id,key] of [['bR','rk'],['bM','ms'],['bB','bm'],['bF','fl'],['bK','bm'],['bV','ms'],['bY','nk']])$(id).style.opacity=(P.am[key]>0?'1':'.42');if(LM){P.pos.set(1500,H(1500,800)+.5,800);P.sp=0;cock=false}
 en=[];pr=[];fx=[];fls=[];rings=[];sc=0;wave=0;run=true;combo=0;boostE=100;NK.t=-1;NK.s=0;GRd=false;GR=0;onG=false;AP=false;emc=0;djc=0;for(const a of ad)scene.remove(a.m);ad.length=0;try{speechSynthesis.cancel()}catch(e){}$('rdo').style.display='none';for(const a of allies)scene.remove(a.mesh);allies=[];for(let i=0;i<2;i++){const mesh=jet(TYPES[i?9:7],0x3d6fa5);mesh.position.set((i?150:-150),P.pos.y,200);scene.add(mesh);allies.push({mesh,pos:mesh.position,q:mesh.quaternion,cd:0})}if(t.aa){for(const a of allies)scene.remove(a.mesh);allies=[]}hgClose();au().resume&&au().resume();engStart();nextWave()}
 $('go').onclick=start;
 
@@ -407,7 +501,19 @@ function aimAt(q,from,to,rate,dt){const f=V(0,0,-1).applyQuaternion(q),d=to.clon
 const ax=f.clone().cross(d).normalize();q.premultiply(new T.Quaternion().setFromAxisAngle(ax,Math.min(a,rate*dt)));return a}
 
 const rc=$('rd').getContext('2d'),lk=$('lk');let last=0;
-function loop(t){requestAnimationFrame(loop);const dt=Math.min(.05,(t-last)/1000||.016);last=t;if(HG.on){hgStep(dt);return}if(!P||!P.mesh)return;
+function loop(t){
+// Pause / settings panel
+function setPaused(v){if(!run||!P||!P.mesh)return;paused=!!v;$('pausePanel').classList.toggle('show',paused);$('pausePanel').setAttribute('aria-hidden',String(!paused));$('pauseTitle').textContent='بازی متوقف شد';if(paused){engStop();for(const k in btn)btn[k]=false;document.querySelectorAll('#bt b').forEach(b=>b.classList.remove('on'))}else{try{au().resume()}catch(e){}if(P&&!LM)engStart()}}
+$('pauseBtn').addEventListener('click',()=>setPaused(true));$('resumeBtn').addEventListener('click',()=>setPaused(false));
+$('menuBtn').addEventListener('click',()=>{paused=false;$('pausePanel').classList.remove('show');$('pausePanel').setAttribute('aria-hidden','true');$('pauseBtn').style.display='none';hgOpen('منوی اصلی')});
+$('settingsBtn').addEventListener('click',()=>{$('settingsPanel').classList.add('show');$('settingsBtn').style.display='none'});
+$('settingsBack').addEventListener('click',()=>{$('settingsPanel').classList.remove('show');$('settingsBtn').style.display='block'});
+$('sensRange').addEventListener('input',e=>{controlSensitivity=Number(e.target.value)/100;$('sensVal').textContent=e.target.value+'٪';invJ=invJ<0?-controlSensitivity:controlSensitivity});
+$('qualitySelect').addEventListener('change',e=>{renderScale=Number(e.target.value);ren.setPixelRatio(Math.min(devicePixelRatio*renderScale,1.75));ren.setSize(innerWidth,innerHeight);if(CMP){CMP.setPixelRatio(Math.min(devicePixelRatio*renderScale,1.5));CMP.setSize(innerWidth,innerHeight)}});
+$('shakeToggle').addEventListener('change',e=>{shakeEnabled=e.target.checked});
+addEventListener('keydown',e=>{if(e.code==='Escape'||e.code==='KeyP'){if(paused)setPaused(false);else setPaused(true)}});
+
+requestAnimationFrame(loop);const dt=Math.min(.05,(t-last)/1000||.016);last=t;if(HG.on){hgStep(dt);return}if(!P||!P.mesh)return;if(paused){ren.render(scene,cam);return}
 windStep(dt);if(run&&!MQP.matches)update(dt);fxStep(dt);
 const fwd=V(0,0,-1).applyQuaternion(P.q);const tp=V(0,6,26+P.t.len*.4).applyQuaternion(P.q).add(P.pos);
 if(!cDrag){cIdle+=dt;if(cIdle>2){const kk=Math.max(0,1-dt*3);cOY*=kk;cOP*=kk;if(Math.abs(cOY)<.002)cOY=0;if(Math.abs(cOP)<.002)cOP=0}}
@@ -416,11 +522,11 @@ if(cock){cam.position.copy(V(0,1.3,-P.t.len*.2).applyQuaternion(P.q).add(P.pos))
 else{orb=Math.min(1,(Math.abs(cOY)+Math.abs(cOP))*4);const o=V(0,6,26+P.t.len*.4).multiplyScalar(cOD).applyEuler(new T.Euler(cOP,cOY,0,'YXZ')).applyQuaternion(P.q).add(P.pos);cam.position.lerp(o,Math.min(1,dt*(7+orb*13)));let qd=P.q;if(orb>0){const lm=new T.Matrix4().lookAt(o,P.pos,V(0,1,0));qd=P.q.clone().slerp(new T.Quaternion().setFromRotationMatrix(lm),orb)}cam.quaternion.slerp(qd,Math.min(1,dt*(5+orb*10)))}
 LMcam(dt);$('cx').style.opacity=$('hz').style.opacity=orb>.3?.2:1;
 P.mesh.visible=!cock||!run;cpStep(dt);
-if(shake>0){cam.position.add(V(R()-.5,R()-.5,R()-.5).multiplyScalar(shake*7));shake=Math.max(0,shake-dt*1.8)}
+if(shake>0){if(shakeEnabled)cam.position.add(V(R()-.5,R()-.5,R()-.5).multiplyScalar(shake*7));shake=Math.max(0,shake-dt*1.8)}
 const fv=P.t.aa?(LM&&LM.zm?22:58):62+(P.sp/P.t.s[1])*16;if(Math.abs(cam.fov-fv)>.1){cam.fov=fv;cam.updateProjectionMatrix()}
 sky.position.copy(cam.position);sun.target.position.copy(P.pos);sun.position.copy(P.pos).addScaledVector(SD,1500);
 if(cam.position.y<H(cam.position.x,cam.position.z)+3)cam.position.y=H(cam.position.x,cam.position.z)+3;
-if(CMP){try{CMP.render()}catch(e){CMP=null}}else ren.render(scene,cam)}
+ren.render(scene,cam)}
 function fxStep(dt){for(let i=fx.length-1;i>=0;i--){const f=fx[i];f.l-=dt;const k=1-f.l/f.L;if(f.v){f.m.position.addScaledVector(f.v,dt);f.v.y+=(f.gy||0)*dt;if(f.dr)f.v.multiplyScalar(Math.max(0,1-f.dr*dt));if(f.sm)f.m.position.addScaledVector(WV,dt*.5)}if(f.rt){f.m.rotation.x+=f.rt*dt;f.m.rotation.z+=f.rt*dt}f.m.scale.setScalar(f.sz*(1+k*f.g));f.m.material.opacity=Math.max(0,.9*(1-k));if(f.l<=0){scene.remove(f.m);f.m.material.dispose();fx.splice(i,1)}}
 const o=+$('fl').style.opacity;if(o>0)$('fl').style.opacity=Math.max(0,o-dt*2);if(msgT>0){msgT-=dt;if(msgT<=0)$('msg').textContent=''}}
 
@@ -453,7 +559,7 @@ if((k.KeyB||btn.B)&&P.cd.b<=0&&P.am.bm>0){P.cd.b=.5;P.am.bm--;shoot('b','p',wp(0
 if((k.KeyK||btn.K)&&P.cd.b<=0&&P.am.bm>1){P.cd.b=.8;P.am.bm-=2;shoot('b','p',wp(0),q,P.sp);const b=pr[pr.length-1];b.cl=true;b.d=0;b.ex=0}
 if((k.KeyV||btn.V)&&P.cd.m<=0&&P.am.ms>=3){P.cd.m=2;const ts=en.filter(e=>!e.dead&&!e.bld&&e.pos.distanceTo(P.pos)<4500).sort((a,b)=>a.pos.distanceTo(P.pos)-b.pos.distanceTo(P.pos)).slice(0,4);for(const e of ts){P.am.ms--;shoot('m','p',wp(R()*8-4),q,P.sp,e)}}
 if((k.KeyY||btn.Y||(t.k==='b52'&&(k.Space||btn.G||k.KeyB||btn.B)))&&P.am.nk>0&&P.cd.b<=0){P.cd.b=1;P.am.nk--;shoot('b','p',wp(0),q,P.sp);const b=pr[pr.length-1];b.ex=900;b.d=2000;b.m.scale.setScalar(3);say('بمب سنگین رها شد',3)}
-if((k.KeyF||btn.F)&&P.cd.f<=0&&P.am.fl>0){P.cd.f=.4;P.am.fl--;for(let i=0;i<3;i++){const m=new T.Mesh(sg,new T.MeshBasicMaterial({color:0xffffaa}));m.scale.setScalar(2);m.position.copy(P.pos);scene.add(m);fls.push({m,mesh:m,l:4,v:V(R()*60-30,-20,R()*60-30).add(f.clone().multiplyScalar(-P.sp*.3))})}nz(1.2,6000,2000,.09,'highpass')}
+if((k.KeyF||btn.F)&&P.cd.f<=0&&P.am.fl>0){P.cd.f=.4;P.am.fl--;$('bF').textContent='فلر '+P.am.fl;for(let i=0;i<3;i++){const m=new T.Mesh(sg,new T.MeshBasicMaterial({color:0xffffaa}));m.scale.setScalar(2);m.position.copy(P.pos);scene.add(m);fls.push({m,mesh:m,l:4,v:V(R()*60-30,-20,R()*60-30).add(f.clone().multiplyScalar(-P.sp*.3))})}nz(1.2,6000,2000,.09,'highpass')}
 // lock
 let best=null,ba=.38;for(const e of en){if(e.dead)continue;const d=e.pos.clone().sub(P.pos),a=f.angleTo(d);if(a<ba&&d.length()<3800){ba=a;best=e}}P.lock=best;
 if(best){const s=best.pos.clone().project(cam);lk.style.display='block';lk.style.left=(s.x*.5+.5)*innerWidth+'px';lk.style.top=(-s.y*.5+.5)*innerHeight+'px'}else lk.style.display='none';
@@ -495,7 +601,7 @@ rc.fillStyle='#fff';rc.fillRect(58,58,4,4)}
 
 
 /* ===== جزئیات بیشتر هواپیماها ===== */
-const jet0=jet;jet=function(p,c){const g=jet0(p,c);if(p.k!=='lnc'&&p.k!=='aaa'){try{jetDetail(g,p)}catch(e){}}return g};
+const jet0=jet;jet=function(p,c){return jet0(p,c)};
 function jetDetail(g,p){g.updateMatrixWorld(true);const bb=new T.Box3().setFromObject(g),sz=bb.getSize(V(0,0,0)),ct=bb.getCenter(V(0,0,0)),hs=sz.x/2,L=p.len||sz.z,nz0=bb.min.z,tz=nz0+L*.93;
 g.traverse(o=>{if(o.isMesh&&o.material&&o.material.isMeshPhongMaterial&&!o.material.transparent){o.material.shininess=Math.max(o.material.shininess,110);o.material.specular.setHex(0xaabbcc)}});
 const wm=new T.MeshPhongMaterial({color:0xeeeeee,shininess:90}),rm=new T.MeshPhongMaterial({color:0xcc2a22}),dk=new T.MeshPhongMaterial({color:0x14171b,shininess:30}),A=(o,x,y,z)=>{o.position.set(x,y,z);g.add(o);return o};
@@ -693,6 +799,8 @@ try{hi=+localStorage.getItem('ac_hi')||0}catch(e){}$('hs').textContent='رکور
 
 /* ===== انتخاب هواپیما در فرودگاه: نمایش سه‌بعدی روی باند، ← → برای تعویض ===== */
 const HG={on:false,i:0,az:2.2,el:.32,m:null,mb:null,old:null,t:1,off:V(0,0,0),tc:V(0,0,0),cc:V(0,0,0),cr:0,r:20,bc:null},HX=1500,HZ=800;
+/* Showroom lighting: bright, soft key/fill/rim lights used only in the aircraft selection hangar. */
+const HGlights=[new T.HemisphereLight(0xeaf7ff,0x35465a,1.35),new T.DirectionalLight(0xffffff,2.0),new T.DirectionalLight(0x5bdcff,1.05),new T.DirectionalLight(0xffc98b,.65)];HGlights[1].position.set(-450,650,500);HGlights[2].position.set(500,220,-550);HGlights[3].position.set(100,-150,450);HGlights.forEach(l=>{l.visible=false;scene.add(l)});
 function hgUI(t){$('hgname').textContent=t.n;$('hgn').textContent=(HG.i+1)+' / '+TYPES.length;
 $('hgs').textContent=t.aa?`پدافند: توپ دوقلو + موشک زمین‌به‌هوا برای سرنگونی جنگنده‌ها · موشک ${t.ms} · توپ ${t.gun}`:t.sh?`پهپاد انتحاری: پرتاب، هدایت دستی و برخورد به شهر · ${t.ms} پهپاد`:t.k==='lnc'?`پرتاب موشک از زمین و هدایت تا برخورد به شهر · موشک ${t.ms}`:`سرعت ${t.s[1]} · زره ${t.hp} · راکت ${t.rk} · موشک ${t.ms} · بمب ${t.bm}${t.nk?' · اتمی '+t.nk:''}`;
 const air=t.s[1]>1;$('hgb').style.display=air?'grid':'none';
@@ -704,21 +812,21 @@ if(HG.m)HG.old={m:HG.m,b:HG.mb.clone(),t:0,v:rt.clone().multiplyScalar(-dir*HG.r
 const m=jet(t,t.col);if(!gnd){mkGear(m,t);m.gear.visible=true;m.gear.scale.y=1}
 const kill=[];m.traverse(o=>{o.castShadow=true;if(o.isSprite||(o.material&&o.material.isMeshBasicMaterial&&o.material.color&&o.material.color.getHex()===0xffa030))kill.push(o)});kill.forEach(o=>o.parent&&o.parent.remove(o));
 m.position.set(HX,H(HX,HZ)+(gnd?.5:3.45),HZ);m.updateMatrixWorld(true);scene.add(m);
-const bb=new T.Box3().setFromObject(m);HG.tc.copy(bb.getCenter(V(0,0,0)));HG.r=bb.getSize(V(0,0,0)).length()/2||10;HG.m=m;HG.mb=m.position.clone();HG.t=0;HG.off.copy(rt).multiplyScalar(dir*HG.r*2.4);
-if(!HG.cr){HG.cc.copy(HG.tc);HG.cr=HG.r*2.25}hgUI(t)}
+m.updateMatrixWorld(true);const bb=new T.Box3().setFromObject(m);HG.tc.copy(bb.getCenter(V(0,0,0)));const bs=bb.getBoundingSphere(new T.Sphere());HG.r=Math.max(bs.radius,4)||10;HG.r*=1.12;HG.m=m;HG.mb=m.position.clone();HG.t=0;HG.off.copy(rt).multiplyScalar(dir*HG.r*2.4);
+if(!HG.cr){HG.cc.copy(HG.tc);const vf=cam.fov*Math.PI/180,aspect=Math.max(.45,cam.aspect),hf=2*Math.atan(Math.tan(vf/2)*aspect);const fit=HG.r/Math.sin(Math.min(vf,hf)/2);HG.cr=Math.max(HG.r*2.15,fit*1.16)}hgUI(t)}
 function hgOpen(msg){for(const o of[...(en||[]),...(pr||[]),...(fx||[]),...(fls||[]),...(rings||[])])scene.remove(o.mesh||o.m);for(const o of CDC)scene.remove(o);CDC.length=0;for(const a of(allies||[]))scene.remove(a.mesh);for(const a of ad)scene.remove(a.m);ad.length=0;en=[];pr=[];fx=[];fls=[];rings=[];allies=[];NK.t=-1;NK.s=0;engStop();shAu(0);try{speechSynthesis.cancel()}catch(e){}
 $('rdo').style.display='none';CK.visible=false;cam.fov=42;cam.updateProjectionMatrix();
 scene.traverse(o=>{if(o.isMesh&&o.geometry.attributes.color&&o.material.map)o.receiveShadow=true});
 if(!HG.bc)HG.bc=scene.children.find(o=>o.isMesh&&o.geometry.type==='CylinderGeometry'&&o.geometry.parameters.height===900)||null;if(HG.bc)HG.bc.visible=false;
-HG.on=true;$('hud').style.display='none';$('hgt').textContent=msg||'راکت بوم';if(msg)$('go').textContent='نبرد دوباره';$('hg').style.display='block';HG.cr=0;hgSel(sel,1)}
-function hgClose(){HG.on=false;$('hg').style.display='none';$('hud').style.display='';if(HG.m){scene.remove(HG.m);HG.m=null}if(HG.old){scene.remove(HG.old.m);HG.old=null}if(HG.bc)HG.bc.visible=true}
+HG.on=true;cOY=0;cOP=0;cOD=1;cIdle=0;HGlights.forEach(l=>l.visible=true);$('hud').style.display='none';$('pauseBtn').style.display='none';$('hgt').textContent=msg||'راکت بوم';if(msg)$('go').textContent='نبرد دوباره';$('hg').style.display='block';HG.cr=0;hgSel(sel,1)}
+function hgClose(){HG.on=false;HGlights.forEach(l=>l.visible=false);$('hg').style.display='none';$('hud').style.display='';if(HG.m){scene.remove(HG.m);HG.m=null}if(HG.old){scene.remove(HG.old.m);HG.old=null}if(HG.bc)HG.bc.visible=true}
 function hgStep(dt){HG.az+=cOY+(cDrag?0:dt*.22);HG.el=Math.max(.04,Math.min(1.25,HG.el-cOP*.8));cOY=0;cOP=0;
-HG.cc.lerp(HG.tc,Math.min(1,dt*5));const Rr=HG.r*2.25*Math.max(.55,Math.min(2.2,cOD));HG.cr+=(Rr-HG.cr)*Math.min(1,dt*5);
+HG.cc.lerp(HG.tc,Math.min(1,dt*5));HGlights[1].position.set(HG.cc.x-HG.r*2,HG.cc.y+HG.r*3,HG.cc.z+HG.r*2);HGlights[2].position.set(HG.cc.x+HG.r*2,HG.cc.y+HG.r,HG.cc.z-HG.r*2);HGlights[3].position.set(HG.cc.x,HG.cc.y-HG.r,HG.cc.z+HG.r*2);const vf=cam.fov*Math.PI/180,aspect=Math.max(.45,cam.aspect),hf=2*Math.atan(Math.tan(vf/2)*aspect),fit=HG.r/Math.sin(Math.min(vf,hf)/2);const Rr=Math.max(HG.r*2.15,fit*1.16)*Math.max(.72,Math.min(1.65,cOD));HG.cr+=(Rr-HG.cr)*Math.min(1,dt*5);
 const ce=Math.cos(HG.el),x=HG.cc.x+Math.sin(HG.az)*ce*HG.cr,z=HG.cc.z+Math.cos(HG.az)*ce*HG.cr,y=Math.max(H(x,z)+2.5,HG.cc.y+Math.sin(HG.el)*HG.cr);cam.position.set(x,y,z);cam.lookAt(HG.cc);
 HG.t=Math.min(1,HG.t+dt*2.6);const e=1-Math.pow(1-HG.t,3);if(HG.m)HG.m.position.copy(HG.mb).addScaledVector(HG.off,1-e);
 if(HG.old){const o=HG.old;o.t+=dt*2.6;const k=Math.min(1,o.t);o.m.position.copy(o.b).addScaledVector(o.v,k*k);if(k>=1){scene.remove(o.m);HG.old=null}}
 sun.target.position.copy(HG.cc);sun.position.copy(HG.cc).addScaledVector(SD,1500);sky.position.copy(cam.position);windStep(dt);
-if(CMP){try{CMP.render()}catch(e){CMP=null}}else ren.render(scene,cam)}
+ren.render(scene,cam)}
 (function(){const q=document.createElement('button');q.id='hgq';q.textContent='؟ راهنما';$('hgdf').appendChild($('df'));$('hgi').appendChild($('hs'));$('hgbt').append(q,$('go'));
 $('hgh').innerHTML=[...document.querySelectorAll('#ov p:not(#hs)')].map(p=>'<p>'+p.innerHTML+'</p>').join('');
 q.onclick=()=>{const h=$('hgh');h.style.display=h.style.display==='block'?'none':'block'};$('hgh').onclick=()=>{$('hgh').style.display='none'};
