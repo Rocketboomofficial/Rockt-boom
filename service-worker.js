@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rocket-boom-ultra-flightdeck-v1';
+const CACHE_NAME = 'rocket-boom-ultra-flightdeck-v5';
 const APP_SHELL = [
   './', './index.html', './manifest.webmanifest', './favicon.svg',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png',
